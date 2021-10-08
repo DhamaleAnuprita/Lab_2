@@ -176,7 +176,7 @@ public class ViewJPanel extends javax.swing.JPanel {
                 .addComponent(btnUpdate)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnDelete)
-                .addGap(14, 14, 14))
+                .addGap(15, 15, 15))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -190,7 +190,7 @@ public class ViewJPanel extends javax.swing.JPanel {
                     .addComponent(btnView)
                     .addComponent(btnDelete)
                     .addComponent(btnUpdate))
-                .addGap(88, 88, 88)
+                .addGap(155, 155, 155)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblName)
                     .addComponent(txtNames, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -283,22 +283,39 @@ public class ViewJPanel extends javax.swing.JPanel {
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
         // TODO add your handling code here:
-        DefaultTableModel model = (DefaultTableModel) tblCarDetails.getModel();
         
-        int selectedRowIndex = tblCarDetails.getSelectedRow();
-        
-        String carName = model.getValueAt(selectedRowIndex , 0).toString();
-        String carAvailability = model.getValueAt(selectedRowIndex , 0).toString();
-        String brandName = model.getValueAt(selectedRowIndex , 0).toString();
-        Date manufacturingYear = (Date) model.getValueAt(selectedRowIndex, 0);
-        int seats = (int) model.getValueAt(selectedRowIndex, 0);
-        long serialNumber = (long) model.getValueAt(selectedRowIndex , 0);
-        String modelNumber = model.getValueAt(selectedRowIndex , 0).toString();
-        String cityName = model.getValueAt(selectedRowIndex , 0).toString();
-        Date expiredCertificate = (Date) model.getValueAt(selectedRowIndex, 0);
-        
-        
-
+       DefaultTableModel model = (DefaultTableModel) tblCarDetails.getModel();
+       int selectedRowIndex = tblCarDetails.getSelectedRow();
+       String carName = model.getValueAt(selectedRowIndex, 0).toString();
+       String carAvailability = model.getValueAt(selectedRowIndex, 1).toString();
+       String brandName = model.getValueAt(selectedRowIndex, 2).toString();
+       Date manufacturingYear = (Date) model.getValueAt(selectedRowIndex, 3);
+       int seats = (int) model.getValueAt(selectedRowIndex, 4);
+       long serialNumber = (long) model.getValueAt(selectedRowIndex, 5);
+       String modelNumber = model.getValueAt(selectedRowIndex, 6).toString();
+       String cityName = model.getValueAt(selectedRowIndex, 7).toString();
+       Date ExpiredMaintenanceDate = (Date) model.getValueAt(selectedRowIndex, 8);
+       
+       String NewcarName = JOptionPane.showInputDialog(null, "Enter new Car Name", carName);
+       String NewcarAvailability = JOptionPane.showInputDialog(null, "Enter new Car Availability", carAvailability);
+       String NewbrandName = JOptionPane.showInputDialog(null, "Enter new Car brand name", brandName);
+       String NewmanufacturingYear = JOptionPane.showInputDialog(null, "Enter new Car Name", manufacturingYear);
+       String Newseats = JOptionPane.showInputDialog(null, "Enter number of Seats", seats);
+       String NewserialNumber = JOptionPane.showInputDialog(null, "Enter new Car Name", serialNumber);
+       String NewmodelNumber = JOptionPane.showInputDialog(null, "Enter new Car Name", modelNumber);
+       String NewcityName = JOptionPane.showInputDialog(null, "Enter new Car Name", cityName);
+       String NewExpiredMaintenanceDate = JOptionPane.showInputDialog(null, "Enter new Car Name", ExpiredMaintenanceDate);
+       
+       model.setValueAt(NewcarName, selectedRowIndex, 0);
+       model.setValueAt(NewcarAvailability, selectedRowIndex, 1);
+       model.setValueAt(NewbrandName, selectedRowIndex, 2);
+       model.setValueAt(NewmanufacturingYear, selectedRowIndex, 3);
+       model.setValueAt(Newseats, selectedRowIndex, 4);
+       model.setValueAt(NewserialNumber, selectedRowIndex, 5);
+       model.setValueAt(NewmodelNumber, selectedRowIndex, 6);
+       model.setValueAt(NewcityName, selectedRowIndex, 7);
+       model.setValueAt(NewExpiredMaintenanceDate, selectedRowIndex, 8);
+       
     }//GEN-LAST:event_btnUpdateActionPerformed
 
 
