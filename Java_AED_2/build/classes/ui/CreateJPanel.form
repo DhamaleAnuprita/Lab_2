@@ -43,13 +43,21 @@
                               <Component id="txtSerialNumber" alignment="0" max="32767" attributes="0"/>
                               <Component id="txtSeats" alignment="0" max="32767" attributes="0"/>
                               <Component id="txtBrand" alignment="0" max="32767" attributes="0"/>
-                              <Component id="txtAvailability" alignment="0" max="32767" attributes="0"/>
                               <Component id="txtNames" alignment="0" max="32767" attributes="0"/>
                           </Group>
                           <Component id="Date_manufacturing_year" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="Date_expired_maintainance" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="checkbox1" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="checkbox2" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <Component id="checkbox3" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="checkbox4" min="-2" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="26" max="32767" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
@@ -71,10 +79,11 @@
                   <Component id="lblName" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="txtNames" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="lblAvailability" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtAvailability" alignment="3" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Component id="lblAvailability" min="-2" max="-2" attributes="0"/>
+                  <Component id="checkbox1" min="-2" max="-2" attributes="0"/>
+                  <Component id="checkbox2" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -106,12 +115,13 @@
                   <Component id="lblCityName" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="txtCityName" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="lblExpiredCertificate" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="Date_expired_maintainance" alignment="0" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Component id="lblExpiredCertificate" min="-2" max="-2" attributes="0"/>
+                  <Component id="checkbox3" min="-2" max="-2" attributes="0"/>
+                  <Component id="checkbox4" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace pref="26" max="32767" attributes="0"/>
               <Component id="btnSave" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
           </Group>
@@ -170,7 +180,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="lblExpiredCertificate">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Expired Maintainance Certificate:"/>
+        <Property name="text" type="java.lang.String" value="Expired Maintainance Check:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtNames">
@@ -178,9 +188,10 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtNamesActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtAvailability">
-    </Component>
     <Component class="javax.swing.JTextField" name="txtBrand">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtBrandActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="txtSeats">
       <Events>
@@ -203,7 +214,25 @@
     </Component>
     <Component class="com.toedter.calendar.JDateChooser" name="Date_manufacturing_year">
     </Component>
-    <Component class="com.toedter.calendar.JDateChooser" name="Date_expired_maintainance">
+    <Component class="java.awt.Checkbox" name="checkbox1">
+      <Properties>
+        <Property name="label" type="java.lang.String" value="Yes"/>
+      </Properties>
+    </Component>
+    <Component class="java.awt.Checkbox" name="checkbox2">
+      <Properties>
+        <Property name="label" type="java.lang.String" value="No"/>
+      </Properties>
+    </Component>
+    <Component class="java.awt.Checkbox" name="checkbox3">
+      <Properties>
+        <Property name="label" type="java.lang.String" value="YES"/>
+      </Properties>
+    </Component>
+    <Component class="java.awt.Checkbox" name="checkbox4">
+      <Properties>
+        <Property name="label" type="java.lang.String" value="NO"/>
+      </Properties>
     </Component>
   </SubComponents>
 </Form>

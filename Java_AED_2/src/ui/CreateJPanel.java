@@ -52,7 +52,6 @@ public class CreateJPanel extends javax.swing.JPanel {
         lblCityName = new javax.swing.JLabel();
         lblExpiredCertificate = new javax.swing.JLabel();
         txtNames = new javax.swing.JTextField();
-        txtAvailability = new javax.swing.JTextField();
         txtBrand = new javax.swing.JTextField();
         txtSeats = new javax.swing.JTextField();
         txtSerialNumber = new javax.swing.JTextField();
@@ -60,7 +59,10 @@ public class CreateJPanel extends javax.swing.JPanel {
         txtCityName = new javax.swing.JTextField();
         btnSave = new javax.swing.JButton();
         Date_manufacturing_year = new com.toedter.calendar.JDateChooser();
-        Date_expired_maintainance = new com.toedter.calendar.JDateChooser();
+        checkbox1 = new java.awt.Checkbox();
+        checkbox2 = new java.awt.Checkbox();
+        checkbox3 = new java.awt.Checkbox();
+        checkbox4 = new java.awt.Checkbox();
 
         lblTitle.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
         lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -82,11 +84,17 @@ public class CreateJPanel extends javax.swing.JPanel {
 
         lblCityName.setText("CityName:");
 
-        lblExpiredCertificate.setText("Expired Maintainance Certificate:");
+        lblExpiredCertificate.setText("Expired Maintainance Check:");
 
         txtNames.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtNamesActionPerformed(evt);
+            }
+        });
+
+        txtBrand.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtBrandActionPerformed(evt);
             }
         });
 
@@ -102,6 +110,14 @@ public class CreateJPanel extends javax.swing.JPanel {
                 btnSaveActionPerformed(evt);
             }
         });
+
+        checkbox1.setLabel("Yes");
+
+        checkbox2.setLabel("No");
+
+        checkbox3.setLabel("YES");
+
+        checkbox4.setLabel("NO");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -132,11 +148,17 @@ public class CreateJPanel extends javax.swing.JPanel {
                                 .addComponent(txtSerialNumber, javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(txtSeats, javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(txtBrand, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(txtAvailability, javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(txtNames, javax.swing.GroupLayout.Alignment.LEADING))
                             .addComponent(Date_manufacturing_year, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Date_expired_maintainance, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(checkbox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(checkbox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(checkbox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(checkbox4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 26, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addGap(249, 249, 249)
@@ -153,9 +175,10 @@ public class CreateJPanel extends javax.swing.JPanel {
                     .addComponent(lblName)
                     .addComponent(txtNames, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(lblAvailability)
-                    .addComponent(txtAvailability, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(checkbox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(checkbox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblBrandName)
@@ -180,11 +203,12 @@ public class CreateJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblCityName)
                     .addComponent(txtCityName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(lblExpiredCertificate)
-                    .addComponent(Date_expired_maintainance, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(checkbox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(checkbox4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
                 .addComponent(btnSave)
                 .addGap(23, 23, 23))
         );
@@ -193,26 +217,37 @@ public class CreateJPanel extends javax.swing.JPanel {
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
         // TODO add your handling code here:
         String names = txtNames.getText();
-        String carAvailability = txtAvailability.getText();
         String brandName = txtBrand.getText();
         int seats = Integer.parseInt(txtSeats.getText());
         long serialNumber = Integer.parseInt(txtSerialNumber.getText());
         Date manufacturingYear = Date_manufacturing_year.getDate();
         String modelNumber = txtModelNumber.getText();
         String cityName = txtCityName.getText();
-        Date expiredCertificate= Date_expired_maintainance.getDate();
-        
+ //      Date expiredCertificate= Date_expired_maintainance.getDate();
+        Boolean yes = checkbox1.getState();
+        Boolean cE = checkbox3.getState();
+ 
         CarDetails cd = history.addNewDetails();
         cd.setCarName(names);
-        cd.setCarAvailability(carAvailability);
         cd.setBrandName(brandName);
         cd.setSeats(seats);
         cd.setSerialNumber(serialNumber);
         cd.setManufacturingYear(manufacturingYear);
         cd.setModelNumber(modelNumber);
         cd.setCityName(cityName);
-        cd.setExpiredCertificate(expiredCertificate);
+ //       cd.setExpiredCertificate(expiredCertificate);
         JOptionPane.showMessageDialog(this, "New  car details added");
+        if (yes) {
+            cd.setCarAvailability("yes");
+        } else {
+            cd.setCarAvailability("no");
+        }
+        
+        if(cE) {
+            cd.setExpiredCertificate("yes");
+        } else {
+            cd.setExpiredCertificate("no");
+        }
         
         //txtNames.setText("");
         //txtAvailability.setText("");
@@ -233,11 +268,18 @@ public class CreateJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtSeatsActionPerformed
 
+    private void txtBrandActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBrandActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtBrandActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private com.toedter.calendar.JDateChooser Date_expired_maintainance;
     private com.toedter.calendar.JDateChooser Date_manufacturing_year;
     private javax.swing.JButton btnSave;
+    private java.awt.Checkbox checkbox1;
+    private java.awt.Checkbox checkbox2;
+    private java.awt.Checkbox checkbox3;
+    private java.awt.Checkbox checkbox4;
     private javax.swing.JLabel lblAvailability;
     private javax.swing.JLabel lblBrandName;
     private javax.swing.JLabel lblCityName;
@@ -248,7 +290,6 @@ public class CreateJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel lblSeats;
     private javax.swing.JLabel lblSerialNumber;
     private javax.swing.JLabel lblTitle;
-    private javax.swing.JTextField txtAvailability;
     private javax.swing.JTextField txtBrand;
     private javax.swing.JTextField txtCityName;
     private javax.swing.JTextField txtModelNumber;

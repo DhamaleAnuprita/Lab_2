@@ -6,6 +6,7 @@
 package model;
 
 import java.util.*;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -20,7 +21,7 @@ public class CarDetails {
     private long serialNumber;
     private String modelNumber;
     private String cityName;
-    private Date expiredCertificate;
+    private String expiredCertificate;
 
     public String getCarName() {
         return carName;
@@ -28,6 +29,13 @@ public class CarDetails {
 
     public void setCarName(String carName) {
         this.carName = carName;
+        if(carName.matches("[a-zA-Z]*")) {
+                this.carName = carName;
+    }
+        else {
+            JOptionPane.showMessageDialog(null, "Please enter a valid Car name.");
+            }
+        
     }
 
     public String getCarAvailability() {
@@ -44,6 +52,12 @@ public class CarDetails {
 
     public void setBrandName(String brandName) {
         this.brandName = brandName;
+        if(brandName.matches("[a-zA-Z]*")) {
+                this.brandName = brandName;
+    }
+        else {
+            JOptionPane.showMessageDialog(null, "Please enter a valid Car brand name.");
+            }
     }
 
     public Date getManufacturingYear() {
@@ -67,8 +81,17 @@ public class CarDetails {
     }
 
     public void setSerialNumber(long serialNumber) {
-        this.serialNumber = serialNumber;
+        
+           if(String.valueOf(serialNumber).length() == 5) {
+            this.serialNumber = serialNumber;
+        }
+            else {
+        JOptionPane.showMessageDialog(null, "Please enter a valid Serial Number Of length 5.");
+           }  
     }
+    
+    
+    
 
     public String getModelNumber() {
         return modelNumber;
@@ -76,6 +99,17 @@ public class CarDetails {
 
     public void setModelNumber(String modelNumber) {
         this.modelNumber = modelNumber;
+        
+        String mn = String.valueOf(modelNumber);
+        if(mn.matches("^[0-9]$"))
+        {
+            this.modelNumber = modelNumber;
+        }
+        else {
+            JOptionPane.showMessageDialog(null, "Please enter a valid Model record number.");
+        }
+        
+        
     }
 
     public String getCityName() {
@@ -84,13 +118,19 @@ public class CarDetails {
 
     public void setCityName(String cityName) {
         this.cityName = cityName;
+        if(cityName.matches("[a-zA-Z]*")) {
+                this.cityName = cityName;
+    }
+        else {
+            JOptionPane.showMessageDialog(null, "Please enter a valid City name.");
+            }
     }
 
-    public Date getExpiredCertificate() {
+    public String getExpiredCertificate() {
         return expiredCertificate;
     }
 
-    public void setExpiredCertificate(Date expiredCertificate) {
+    public void setExpiredCertificate(String expiredCertificate) {
         this.expiredCertificate = expiredCertificate;
     }
     

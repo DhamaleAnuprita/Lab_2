@@ -4,6 +4,8 @@
  * and open the template in the editor.
  */
 package ui;
+import java.time.format.DateTimeFormatter;  
+import java.time.LocalDateTime;
 
 import java.util.Date;
 import javax.swing.JOptionPane;
@@ -30,6 +32,8 @@ public class ViewJPanel extends javax.swing.JPanel {
         
         populateTable();
     }
+    
+   
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -64,12 +68,19 @@ public class ViewJPanel extends javax.swing.JPanel {
         btnView = new javax.swing.JButton();
         btnDelete = new javax.swing.JButton();
         btnUpdate = new javax.swing.JButton();
+        txtUpdateTime = new javax.swing.JTextField();
 
         lblExpiredCertificate.setText("Expired Maintainance Certificate:");
 
         txtNames.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtNamesActionPerformed(evt);
+            }
+        });
+
+        txtAvailability.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtAvailabilityActionPerformed(evt);
             }
         });
 
@@ -133,6 +144,12 @@ public class ViewJPanel extends javax.swing.JPanel {
             }
         });
 
+        txtUpdateTime.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtUpdateTimeActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -170,7 +187,9 @@ public class ViewJPanel extends javax.swing.JPanel {
                 .addContainerGap())
             .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 841, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
+                .addContainerGap()
+                .addComponent(txtUpdateTime, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnView)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnUpdate)
@@ -189,8 +208,9 @@ public class ViewJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnView)
                     .addComponent(btnDelete)
-                    .addComponent(btnUpdate))
-                .addGap(155, 155, 155)
+                    .addComponent(btnUpdate)
+                    .addComponent(txtUpdateTime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(49, 49, 49)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblName)
                     .addComponent(txtNames, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -255,7 +275,7 @@ public class ViewJPanel extends javax.swing.JPanel {
         Date_manufacturing_year.setDate(selectedCar.getManufacturingYear());//(selectedCar.getManufacturingYear());
         txtModelNumber.setText(selectedCar.getModelNumber());
         txtCityName.setText(selectedCar.getCityName());
-        Date_expired_maintainance.setDate(selectedCar.getExpiredCertificate());
+//        Date_expired_maintainance.setDate(selectedCar.getExpiredCertificate());
         
     }//GEN-LAST:event_btnViewActionPerformed
 
@@ -301,10 +321,10 @@ public class ViewJPanel extends javax.swing.JPanel {
        String NewbrandName = JOptionPane.showInputDialog(null, "Enter new Car brand name", brandName);
        String NewmanufacturingYear = JOptionPane.showInputDialog(null, "Enter new Car Name", manufacturingYear);
        String Newseats = JOptionPane.showInputDialog(null, "Enter number of Seats", seats);
-       String NewserialNumber = JOptionPane.showInputDialog(null, "Enter new Car Name", serialNumber);
-       String NewmodelNumber = JOptionPane.showInputDialog(null, "Enter new Car Name", modelNumber);
-       String NewcityName = JOptionPane.showInputDialog(null, "Enter new Car Name", cityName);
-       String NewExpiredMaintenanceDate = JOptionPane.showInputDialog(null, "Enter new Car Name", ExpiredMaintenanceDate);
+       String NewserialNumber = JOptionPane.showInputDialog(null, "Enter new Car Serial Number", serialNumber);
+       String NewmodelNumber = JOptionPane.showInputDialog(null, "Enter new model number", modelNumber);
+       String NewcityName = JOptionPane.showInputDialog(null, "Enter new City Name", cityName);
+       String NewExpiredMaintenanceDate = JOptionPane.showInputDialog(null, "Enter the expired maintainance date Name", ExpiredMaintenanceDate);
        
        model.setValueAt(NewcarName, selectedRowIndex, 0);
        model.setValueAt(NewcarAvailability, selectedRowIndex, 1);
@@ -316,7 +336,20 @@ public class ViewJPanel extends javax.swing.JPanel {
        model.setValueAt(NewcityName, selectedRowIndex, 7);
        model.setValueAt(NewExpiredMaintenanceDate, selectedRowIndex, 8);
        
+       this.txtUpdateTimeActionPerformed(evt);
+       
     }//GEN-LAST:event_btnUpdateActionPerformed
+
+    private void txtUpdateTimeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUpdateTimeActionPerformed
+        // TODO add your handling code here:
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+        LocalDateTime now = LocalDateTime.now();
+        this.txtUpdateTime.setText(now.format(dtf));
+    }//GEN-LAST:event_txtUpdateTimeActionPerformed
+
+    private void txtAvailabilityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAvailabilityActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtAvailabilityActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -344,6 +377,7 @@ public class ViewJPanel extends javax.swing.JPanel {
     private javax.swing.JTextField txtNames;
     private javax.swing.JTextField txtSeats;
     private javax.swing.JTextField txtSerialNumber;
+    private javax.swing.JTextField txtUpdateTime;
     // End of variables declaration//GEN-END:variables
 
     private void populateTable() {
