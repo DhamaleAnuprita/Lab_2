@@ -74,6 +74,14 @@ public class CarDetails {
 
     public void setSeats(int seats) {
         this.seats = seats;
+        //String mn = String.valueOf(modelNumber);
+        //if(mn.matches("^[0-9]$"))
+        //{
+         //   this.seats = seats;
+        //}
+        //else {
+        //    JOptionPane.showMessageDialog(null, "Please enter a valid Seat record number.");
+        //}
     }
 
     public long getSerialNumber() {
@@ -98,7 +106,7 @@ public class CarDetails {
     }
 
     public void setModelNumber(String modelNumber) {
-        this.modelNumber = modelNumber;
+        
         
         String mn = String.valueOf(modelNumber);
         if(mn.matches("^[0-9]$"))
